@@ -43,7 +43,7 @@ namespace CoreVSAppNet5
         //- Подключается механизм логирования.
 
         //ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
-        //- В конфигурацию загружаются переменные среды. Пример из нашего appsettings.json: "ASPNETCORE_ENVIRONMENT": "Development"
+        //- В конфигурацию загружаются переменные среды (типан настройки стартовые). Пример из нашего appsettings.json: "ASPNETCORE_ENVIRONMENT": "Development"
         //- Запускается тот самый кроссплатформенный сервер Kestrel, на котором будет развёрнуто приложение.
         //- Добавляется компонент Host Filtering, позволяющий настраивать для Kestrel веб-адреса.
         //- Если приложение нужно развернуть в Windows-окружении на IIS, то здесь также выполняется интеграция с IIS.
