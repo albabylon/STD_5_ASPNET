@@ -1,13 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcStartApp", "MvcStartApp\MvcStartApp.csproj", "{91C3F85B-AF49-40DB-886C-F1BEB1198E16}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{E42B2CDF-2399-4939-AF37-CDBC510CA7C3}"
 	ProjectSection(SolutionItems) = preProject
 		ASP.NET Core.txt = ASP.NET Core.txt
+		Middleware.txt = Middleware.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreVSApp", "CoreVSApp\CoreVSApp.csproj", "{C533AC85-95FF-4FC6-B08A-CBFEF2EBDC16}"
