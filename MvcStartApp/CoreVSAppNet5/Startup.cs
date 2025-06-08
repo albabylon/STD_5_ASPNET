@@ -1,3 +1,4 @@
+using CoreVSAppNet5.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -5,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -105,6 +107,24 @@ namespace CoreVSAppNet5
             //});
 
 
+            //Используем метод Use, чтобы запрос передавался дальше по конвейеру
+            //app.Use(async (context, next) =>
+            //{
+            //    // Строка для публикации в лог
+            //    string logMessage = $"[{DateTime.Now}]: New request to http://{context.Request.Host.Value + context.Request.Path}{Environment.NewLine}";
+
+            //    // Путь до лога (используем свойства IWebHostEnvironment)
+            //    string logFilePath = Path.Combine(env.ContentRootPath, "Logs", "RequestLog.txt");
+
+            //    // Используем асинхронную запись в файл
+            //    await File.AppendAllTextAsync(logFilePath, logMessage);
+
+            //    await next.Invoke();
+            //});
+
+            // Подключаем логирвоание с использованием ПО промежуточного слоя
+            app.UseMiddleware<LoggingMiddleware>();
+
             //Добавляем компонент с настройкой маршрутов для главной страницы
             app.UseEndpoints(endpoints =>
             {
@@ -143,7 +163,7 @@ namespace CoreVSAppNet5
         {
             app.Run(async context =>
             {
-                await context.Response.WriteAsync($"App name: {_env.ApplicationName}. App running configuration: {env.EnvironmentName}");
+                await context.Response.WriteAsync($"App name: {_env.ApplicationName}. App running configuration: {_env.EnvironmentName}");
             });
         }
     }
