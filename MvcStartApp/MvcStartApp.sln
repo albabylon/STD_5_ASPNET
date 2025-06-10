@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcStartApp", "MvcStartApp\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{E42B2CDF-2399-4939-AF37-CDBC510CA7C3}"
 	ProjectSection(SolutionItems) = preProject
+		Ajax.txt = Ajax.txt
 		ASP.NET Core.txt = ASP.NET Core.txt
 		ErrorHandling.txt = ErrorHandling.txt
 		Middleware.txt = Middleware.txt

@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using MvcStartAppNet5.Models;
 using MvcStartAppNet5.Models.Db;
+using MvcStartAppNet5.Models.Db.Entities;
+using MvcStartAppNet5.Models.Db.Repository;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

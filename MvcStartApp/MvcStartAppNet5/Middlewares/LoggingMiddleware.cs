@@ -2,12 +2,15 @@
 using System.Threading.Tasks;
 using System;
 using System.IO;
+using MvcStartAppNet5.Models.Db.Repository;
+using MvcStartAppNet5.Models.Db.Entities;
 
 namespace MvcStartAppNet5.Middlewares
 {
     public class LoggingMiddleware
     {
         private readonly RequestDelegate _next;
+        private ILoggingRepository _logRepo;
 
         /// <summary>
         ///  Middleware-компонент должен иметь конструктор, принимающий RequestDelegate
@@ -20,13 +23,33 @@ namespace MvcStartAppNet5.Middlewares
         /// <summary>
         ///  Необходимо реализовать метод Invoke  или InvokeAsync
         /// </summary>
-        public async Task InvokeAsync(HttpContext context)
+        public async Task InvokeAsync(HttpContext context, ILoggingRepository logRepo)
         {
+            _logRepo = logRepo;
+
+            //логирование в консоль
             LogConsole(context);
+
+            //логирование в файл
             //await LogFile(context);
+
+            //логирование в базу
+            LogDb(context);
 
             // Передача запроса далее по конвейеру
             await _next.Invoke(context);
+        }
+
+        private void LogDb(HttpContext context)
+        {
+            var request = new Request
+            {
+                Date = DateTime.Now,
+                Id = Guid.NewGuid(),
+                Url = $"http://{context.Request.Host.Value + context.Request.Path}"
+            };
+
+            _logRepo.AddRequest(request);
         }
 
         private void LogConsole(HttpContext context)

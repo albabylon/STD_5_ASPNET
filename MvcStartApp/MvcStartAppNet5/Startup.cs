@@ -1,16 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MvcStartAppNet5.Middlewares;
-using MvcStartAppNet5.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MvcStartAppNet5.Models.Db;
+using MvcStartAppNet5.Models.Db.Repository;
 
 namespace MvcStartAppNet5
 {
@@ -35,6 +31,9 @@ namespace MvcStartAppNet5
             // регистрация сервиса репозитория для взаимодействия с базой данных
             services.AddScoped<IBlogRepository, BlogRepository>();
 
+            // регистрация сервиса репозитория для взаимодействия с базой данных логирования
+            services.AddScoped<ILoggingRepository, LoggingRepository>();
+
             //добавление непосредственно функционала MVC
             services.AddControllersWithViews();
         }
@@ -58,7 +57,7 @@ namespace MvcStartAppNet5
             //добавление маршрутизации
             app.UseRouting();
 
-            // Подключаем логирвоание с использованием ПО промежуточного слоя
+            // Подключаем логирование с использованием ПО промежуточного слоя
             app.UseMiddleware<LoggingMiddleware>();
 
             app.UseAuthorization();

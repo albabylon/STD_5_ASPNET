@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MvcStartAppNet5.Models.Db;
+using MvcStartAppNet5.Models.Db.Entities;
 
-namespace MvcStartAppNet5.Models
+namespace MvcStartAppNet5.Models.Db
 {
     /// <summary>
     /// Класс контекста, предоставляющий доступ к сущностям базы данных
@@ -13,6 +13,9 @@ namespace MvcStartAppNet5.Models
 
         /// Ссылка на таблицу UserPosts
         public DbSet<UserPost> UserPosts { get; set; }
+
+        /// Ссылка на таблицу Requests
+        public DbSet<Request> Requests { get; set; }
 
         // Логика взаимодействия с таблицами в БД
         public BlogContext(DbContextOptions<BlogContext> options) : base(options)

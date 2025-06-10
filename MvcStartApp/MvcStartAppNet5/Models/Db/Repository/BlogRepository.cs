@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MvcStartAppNet5.Models.Db;
+using MvcStartAppNet5.Models.Db.Entities;
 using System;
 using System.Threading.Tasks;
 
-namespace MvcStartAppNet5.Models
+namespace MvcStartAppNet5.Models.Db.Repository
 {
     public class BlogRepository : IBlogRepository
     {

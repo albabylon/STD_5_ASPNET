@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using MvcStartAppNet5.Models;
-using MvcStartAppNet5.Models.Db;
-using System;
+using MvcStartAppNet5.Models.Db.Entities;
+using MvcStartAppNet5.Models.Db.Repository;
 using System.Threading.Tasks;
 
 namespace MvcStartAppNet5.Controllers
@@ -24,7 +22,7 @@ namespace MvcStartAppNet5.Controllers
         }
 
         [HttpGet] // отображает форму
-        public async Task<IActionResult> Register()
+        public IActionResult Register()
         {
             return View();
         }
@@ -32,8 +30,11 @@ namespace MvcStartAppNet5.Controllers
         [HttpPost] // когда нажали отправить форму (заносит в бд и пишет результат)
         public async Task<IActionResult> Register(User newUser)
         {
+            //await _repo.AddUser(newUser);
+            //return Content($"Registration successful, {newUser.FirstName}");
+
             await _repo.AddUser(newUser);
-            return Content($"Registration successful, {newUser.FirstName}");
+            return View(newUser);
         }
     }
 }

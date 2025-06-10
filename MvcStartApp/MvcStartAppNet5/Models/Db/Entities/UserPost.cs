@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace MvcStartAppNet5.Models.Db
+namespace MvcStartAppNet5.Models.Db.Entities
 {
     //Чтобы отделить модели, предназначенные именно для хранения в базе данных, можем поместить их в подпапку Db.
-    
+
     /// <summary>
     ///  Модель поста в блоге
     /// </summary>
