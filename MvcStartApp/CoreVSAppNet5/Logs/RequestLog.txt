@@ -1,0 +1,17 @@
+﻿
+[08.06.2025 12:36:52]: New request to http://localhost:5001/
+[08.06.2025 12:36:52]: New request to http://localhost:5001/favicon.ico
+[08.06.2025 12:37:02]: New request to http://localhost:5001/about
+[08.06.2025 12:37:02]: New request to http://localhost:5001/favicon.ico
+[09.06.2025 21:04:02]: New request to http://localhost:5001/
+[09.06.2025 21:04:08]: New request to http://localhost:5001/index
+[09.06.2025 21:04:13]: New request to http://localhost:5001/index.html
+[09.06.2025 21:07:09]: New request to http://localhost:5001/index.html
+[09.06.2025 21:07:15]: New request to http://localhost:5001/index.html
+[09.06.2025 21:14:26]: New request to http://localhost:5001/%D0%B2%D1%84%D0%B2%D1%84
+[09.06.2025 21:14:42]: New request to http://localhost:5001/%D0%B2%D1%84%D0%B2%D1%84
+[09.06.2025 21:14:47]: New request to http://localhost:5001/%D0%B2%D1%84%D0%B2%D1%84
+[09.06.2025 21:14:48]: New request to http://localhost:5001/%D0%B2%D1%84%D0%B2%D1%84
+[09.06.2025 21:14:56]: New request to http://localhost:5001/%D0%B2%D1%84%D0%B2%D1%84
+[09.06.2025 21:14:59]: New request to http://localhost:5001/%D0%B0%D1%8B%D0%B0%D1%8B%D0%B0%D1%8B
+[09.06.2025 21:15:33]: New request to http://localhost:5001/%D0%B0%D1%8B%D0%B0%D1%8B%D0%B0%D1%8B
