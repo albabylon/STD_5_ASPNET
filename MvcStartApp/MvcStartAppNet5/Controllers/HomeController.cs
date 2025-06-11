@@ -24,24 +24,8 @@ namespace MvcStartAppNet5.Controllers
             _repo = repo;
         }
 
-        // Сделаем метод асинхронным
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            // Добавим создание нового пользователя
-            var newUser = new User()
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "Andrey",
-                LastName = "Petrov",
-                JoinDate = DateTime.Now
-            };
-
-            // Добавим в базу
-            await _repo.AddUser(newUser);
-
-            // Выведем результат
-            Console.WriteLine($"User with id {newUser.Id}, named {newUser.FirstName} was successfully added on {newUser.JoinDate}");
-
             return View();
         }
 
