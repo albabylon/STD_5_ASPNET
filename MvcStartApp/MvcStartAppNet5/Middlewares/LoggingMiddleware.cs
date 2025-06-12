@@ -34,13 +34,13 @@ namespace MvcStartAppNet5.Middlewares
             //await LogFile(context);
 
             //логирование в базу
-            LogDb(context);
+            await LogDb(context);
 
             // Передача запроса далее по конвейеру
             await _next.Invoke(context);
         }
 
-        private void LogDb(HttpContext context)
+        private async Task LogDb(HttpContext context)
         {
             var request = new Request
             {
@@ -49,7 +49,7 @@ namespace MvcStartAppNet5.Middlewares
                 Url = $"http://{context.Request.Host.Value + context.Request.Path}"
             };
 
-            _logRepo.AddRequest(request);
+            await _logRepo.AddRequest(request);
         }
 
         private void LogConsole(HttpContext context)
