@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{E42B2CDF
 	ProjectSection(SolutionItems) = preProject
 		Ajax.txt = Ajax.txt
 		ASP.NET Core.txt = ASP.NET Core.txt
+		Autentification.txt = Autentification.txt
 		ErrorHandling.txt = ErrorHandling.txt
 		Middleware.txt = Middleware.txt
 		MVC.txt = MVC.txt
@@ -20,6 +21,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreVSAppNet5", "CoreVSAppNet5\CoreVSAppNet5.csproj", "{1FE4A99D-5337-48DC-BF6A-6EF67E7D7DC6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcStartAppNet5", "MvcStartAppNet5\MvcStartAppNet5.csproj", "{FAF951AC-2311-4FC9-9026-B890C9AE7533}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiAuthenticationService", "WebApiAuthenticationService\WebApiAuthenticationService.csproj", "{21A15938-C961-498C-8DCD-FB40E9749FB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +46,10 @@ Global
 		{FAF951AC-2311-4FC9-9026-B890C9AE7533}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAF951AC-2311-4FC9-9026-B890C9AE7533}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAF951AC-2311-4FC9-9026-B890C9AE7533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21A15938-C961-498C-8DCD-FB40E9749FB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A15938-C961-498C-8DCD-FB40E9749FB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A15938-C961-498C-8DCD-FB40E9749FB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A15938-C961-498C-8DCD-FB40E9749FB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
