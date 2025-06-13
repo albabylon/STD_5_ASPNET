@@ -1,9 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
 
-namespace WebApiAuthenticationService
+namespace WebApiAuthenticationService.PLL.Logging
 {
     public class Logger : ILogger
     {
@@ -23,7 +22,7 @@ namespace WebApiAuthenticationService
         {
             //блокирует доступ для всех других потоков (как на чтение, так и на запись), пока текущий поток работает с файлом
             //гарантирует, что только один поток может писать в файл в данный момент
-            lock_.EnterWriteLock(); 
+            lock_.EnterWriteLock();
             try
             {
                 //режиме дописывания (append: true), чтобы новые сообщения добавлялись в конец, а не перезаписывали файл

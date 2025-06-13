@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using WebApiAuthenticationService.BLL.Models;
 
-namespace WebApiAuthenticationService
+namespace WebApiAuthenticationService.DAL
 {
     public class UserRepository : IUserRepository
     {
@@ -18,6 +19,11 @@ namespace WebApiAuthenticationService
                 Email = "ivan@gmail.com",
                 Password = "11111122222qq",
                 Login = "ivanov",
+                Role = new Role()
+                {
+                    Id = 1,
+                    Name = "Пользователь"
+                }
             });
 
             _users.Add(new User()
@@ -27,7 +33,12 @@ namespace WebApiAuthenticationService
                 LastName = "Максимов",
                 Email = "maksim@gmail.com",
                 Password = "11",
-                Login = "maxim"
+                Login = "maxim",
+                Role = new Role()
+                {
+                    Id = 2,
+                    Name = "Администратор"
+                }
             });
 
             _users.Add(new User()
@@ -37,7 +48,12 @@ namespace WebApiAuthenticationService
                 LastName = "Антонов",
                 Email = "anton@gmail.com",
                 Password = "111zzxc1",
-                Login = "anton"
+                Login = "anton",
+                Role = new Role()
+                {
+                    Id = 1,
+                    Name = "Пользователь"
+                }
             });
         }
 

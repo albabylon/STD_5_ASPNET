@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Net.Mail;
+using WebApiAuthenticationService.BLL.Models;
 
-namespace WebApiAuthenticationService
+namespace WebApiAuthenticationService.BLL.ViewModels
 {
     // Есть модель User но у внешнего приложения, которое работает с нашей API,
     // появляется потребность в отображении следующей информации: полное имя пользователя, включая имя и фамилию, и принадлежность к РФ.
@@ -14,7 +15,7 @@ namespace WebApiAuthenticationService
 
         public bool FromRussia { get; set; } // находится ли пользователь в Российской Федерации
 
-        
+
         public UserViewModel(User user)
         {
             Id = user.Id;
@@ -25,7 +26,7 @@ namespace WebApiAuthenticationService
 
         public string GetFullName(string firstName, string lastName)
         {
-            return String.Concat(firstName, " ", lastName);
+            return string.Concat(firstName, " ", lastName);
         }
 
         public bool GetFromRussiaValue(string email)

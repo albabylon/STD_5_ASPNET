@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using WebApiAuthenticationService.BLL.Models;
 
-namespace WebApiAuthenticationService
+namespace WebApiAuthenticationService.DAL
 {
     public interface IUserRepository
     {

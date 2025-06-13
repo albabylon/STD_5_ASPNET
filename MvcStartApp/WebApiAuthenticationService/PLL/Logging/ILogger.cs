@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace WebApiAuthenticationService
+namespace WebApiAuthenticationService.PLL.Logging
 {
     public interface ILogger
     {
