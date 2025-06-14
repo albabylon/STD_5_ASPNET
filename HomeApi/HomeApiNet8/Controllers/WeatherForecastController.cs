@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using HomeApi.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
-namespace HomeApi.Controllers
+namespace HomeApiNet8.Controllers
 {
-    //Маршрут для контроллера задан атрибутами. В итоге мы можем обратиться к контроллеру по его имени
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -25,15 +18,14 @@ namespace HomeApi.Controllers
             _logger = logger;
         }
 
-        [HttpGet] //позволяет нам явно указать, какие HTTP-методы должен обслуживать данный метод
+        [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
         }

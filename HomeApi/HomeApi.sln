@@ -5,6 +5,15 @@ VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeApi", "HomeApi\HomeApi.csproj", "{A66F741F-DA76-4804-89EB-6EA78B460F23}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{70A109F1-8077-4FD6-BE7B-0BE3B30FB309}"
+	ProjectSection(SolutionItems) = preProject
+		REST.txt = REST.txt
+		Swagger.txt = Swagger.txt
+		WebApi.txt = WebApi.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeApiNet8", "HomeApiNet8\HomeApiNet8.csproj", "{6243E051-ACE5-4B80-8276-1CD6C6C4D966}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +24,10 @@ Global
 		{A66F741F-DA76-4804-89EB-6EA78B460F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A66F741F-DA76-4804-89EB-6EA78B460F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A66F741F-DA76-4804-89EB-6EA78B460F23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6243E051-ACE5-4B80-8276-1CD6C6C4D966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6243E051-ACE5-4B80-8276-1CD6C6C4D966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6243E051-ACE5-4B80-8276-1CD6C6C4D966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6243E051-ACE5-4B80-8276-1CD6C6C4D966}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
