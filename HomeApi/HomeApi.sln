@@ -1,12 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeApi", "HomeApi\HomeApi.csproj", "{A66F741F-DA76-4804-89EB-6EA78B460F23}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{70A109F1-8077-4FD6-BE7B-0BE3B30FB309}"
 	ProjectSection(SolutionItems) = preProject
+		HTTP.txt = HTTP.txt
 		REST.txt = REST.txt
 		Swagger.txt = Swagger.txt
 		WebApi.txt = WebApi.txt
