@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using HomeApi.Configuration;
+using HomeApi.Mapping;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using AutoMapper;
 
 namespace HomeApi
 {
@@ -45,6 +48,18 @@ namespace HomeApi
             //});
             // Можно часть загрузить только. Загружаем только адрес (вложенный Json-объект) 
             //services.Configure<Address>(Configuration.GetSection("Address"));
+
+            // Подключаем автомаппинг - старый вариант через пакет AutoMapper.Extensions.Microsoft.DependencyInjection
+            //var assembly = Assembly.GetAssembly(typeof(MappingProfile));
+            //services.AddAutoMapper(assembly);
+
+            // Подключаем автомаппинг
+            var mapperConfig = new MapperConfiguration((v) =>
+            {
+                v.AddProfile(new MappingProfile());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
             // Нам не нужны представления, но в MVC бы здесь стояло AddControllersWithViews()
             services.AddControllers();
