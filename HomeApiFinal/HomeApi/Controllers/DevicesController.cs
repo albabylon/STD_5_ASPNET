@@ -39,13 +39,14 @@ namespace HomeApi.Controllers
             var resp = new GetDevicesResponse
             {
                 DeviceAmount = devices.Length,
-                Devices = _mapper.Map<Device[], DeviceView[]>(devices)
+                Devices = _mapper.Map<Device[], DeviceView[]>(devices) //маппинга не только обычных объектов, но и коллекций, как происходит тут
             };
             
             return StatusCode(200, resp);
         }
         
         // TODO: Задание: напишите запрос на удаление устройства
+
         
         /// <summary>
         /// Добавление нового устройства
@@ -71,11 +72,11 @@ namespace HomeApi.Controllers
         /// <summary>
         /// Обновление существующего устройства
         /// </summary>
-        [HttpPatch] 
+        [HttpPatch]  //частичное обновление
         [Route("{id}")] 
         public async Task<IActionResult> Edit(
-            [FromRoute] Guid id,
-            [FromBody]  EditDeviceRequest request)
+            [FromRoute] Guid id, // получив запрос, метод биндит его из URL. Использовать для биндинга именно URL, а не Body методу указывает атрибут [FromRoute]. Есть еще [FromForm], [FromHeader], [FromQuery], [FromRoute], [FromService]
+            [FromBody]  EditDeviceRequest request) //берётся из тела запроса.
         {
             var room = await _rooms.GetRoomByName(request.NewRoom);
             if(room == null)
@@ -97,5 +98,6 @@ namespace HomeApi.Controllers
 
             return StatusCode(200, $"Устройство обновлено! Имя - {device.Name}, Серийный номер - {device.SerialNumber},  Комната подключения - {device.Room.Name}");
         }
+        //контроллер не содержит никакой логики, связанной с данными, вся она — в моделях
     }
 }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HomeApi.Data.Models
 {
-    [Table("Devices")]
+    [Table("Devices")] //указывается для ссылок на соответствующие таблицы
     public class Device
     {
         public Guid Id { get; set; } = Guid.NewGuid();
@@ -15,7 +15,7 @@ namespace HomeApi.Data.Models
         public int CurrentVolts { get; set; }
         public bool GasUsage { get; set; }
         public string Location { get; set; }
-        public Guid RoomId { get; set; }
-        public Room Room { get; set; }
+        public Guid RoomId { get; set; } //в комнате может быть несколько устройств
+        public Room Room { get; set; } //в комнате может быть несколько устройств
     }
 }

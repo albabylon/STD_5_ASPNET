@@ -5,7 +5,7 @@ using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 
 namespace HomeApi.Data
 {
-    public sealed class HomeApiContext : DbContext
+    public sealed class HomeApiContext : DbContext //доступ к базе с использованием Entity Framework осуществляется через контекст
     {
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Device> Devices { get; set; }
