@@ -15,6 +15,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using AutoMapper;
+using FluentValidation.AspNetCore;
+using HomeApi.Contracts.Devices;
+using HomeApi.Contracts.Validation;
 
 namespace HomeApi
 {
@@ -60,6 +63,9 @@ namespace HomeApi
             });
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
+
+            // Подключаем fluentvalidator (подключаются все валидаторы, которые находятся в сборке, которая содержит AddDeviceRequestValidator)
+            services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddDeviceRequestValidator>());
 
             // Нам не нужны представления, но в MVC бы здесь стояло AddControllersWithViews()
             services.AddControllers();

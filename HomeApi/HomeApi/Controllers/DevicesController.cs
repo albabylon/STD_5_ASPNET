@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using HomeApi.Configuration;
 using HomeApi.Contracts.Devices;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
@@ -39,7 +38,7 @@ namespace HomeApi.Controllers
                 .GetFiles(staticPath)
                 .FirstOrDefault(f => f.Split("\\").Last().Split('.')[0] == manufacturer);
 
-            if(string.IsNullOrEmpty(filePath))
+            if (string.IsNullOrEmpty(filePath))
                 return StatusCode(404, $"Инструкция для производителя {manufacturer} не найденона сервере. Проверьте название!");
 
             string fileType = "application/pdf"; //свойства ответа для клиента (заголовки)
@@ -65,6 +64,15 @@ namespace HomeApi.Controllers
         [Route("Add")]
         public IActionResult Add([FromBody] AddDeviceRequest request) // Атрибут, указывающий, откуда брать значение объекта и Объект запроса
         {
+            //if (request.CurrentVolts < 120)
+            //{
+            //    // Добавляем для клиента информативную ошибку (валидация как через атрибут в модели)
+            //    ModelState.AddModelError("currentVolts", "Устройства с напряжением меньше 120 вольт не поддерживаются!");
+            //    return BadRequest(ModelState);
+            //}
+
+            //валидация через fluentvalidator (AddDeviceRequestValidator)
+
             return StatusCode(200, $"Устройство {request.Name} добавлено!");
         }
     }
