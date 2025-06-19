@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using AutoMapper;
 using HomeApi.Contracts.Models.Rooms;
 using HomeApi.Data.Models;
+using HomeApi.Data.Queries;
 using HomeApi.Data.Repos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,9 +24,44 @@ namespace HomeApi.Controllers
             _repository = repository;
             _mapper = mapper;
         }
-        
-        //TODO: Задание - добавить метод на получение всех существующих комнат
-        
+
+        /// <summary>
+        /// Получить все комнаты
+        /// </summary>
+        [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> GetRooms()
+        {
+            var rooms = await _repository.GetRooms();
+
+            var resp = new GetRoomsResponse
+            {
+                RoomAmount = rooms.Length,
+                Rooms = _mapper.Map<Room[], RoomView[]>(rooms)
+            };
+
+            return StatusCode(200, resp);
+        }
+
+        /// <summary>
+        /// Обновить комнату
+        /// </summary>
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateRoomRequest request)
+        {
+            var room = await _repository.GetRoomById(id);
+            if (room == null)
+                return StatusCode(400, $"Ошибка: Комната {request.NewName} не найдена!");
+
+            await _repository.UpdateRoom(
+                room,
+                new UpdateRoomQuery(request.NewName, request.NewArea, request.NewGasConnected, request.NewVoltage)
+            );
+
+            return StatusCode(200, $"Устройство обновлено! Имя - {room.Name}");
+        }
+
         /// <summary>
         /// Добавление комнаты
         /// </summary>
